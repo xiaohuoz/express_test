@@ -1,0 +1,12 @@
+CACHE MANIFEST
+# 2012-02-21 v1.0.0
+/theme.css
+/logo.css
+/login.html
+https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js
+
+NETWORK:
+login.asp
+
+FALLBACK:
+/404.html

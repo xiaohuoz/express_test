@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html manifest="demo.appcache">
+	<head>
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<span title="123">ads</span>
+	</body>
+	<script>
+		$(document).ready(function(){
+			$.ajax({
+				url:'/users',
+				type:'get',
+				success:function(result){
+					console.log(result);
+					if(!localStorage.result){
+						localStorage.result = result;
+					}
+					console.log(localStorage.result);
+				},error:function(result){
+					console.log(result);
+				}
+			});
+		});
+	</script>
+</html>

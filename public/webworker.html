@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<head></head>
+<body>
+	<span id="result"></span>
+	<button id="start">start</button>
+	<button id="end">end</button>
+	<script type="text/javascript">
+		var w;
+		function startWorker()
+		{
+			if(typeof(Worker)!=="undefined")
+			  	{
+			  		if(typeof(w)=="undefined")
+			  	{
+			 	 	w = new Worker("./webworkers.js");
+			  	}
+			  	w.onmessage = function (event) {
+		    		document.getElementById("result").innerHTML=event.data;
+		    	};
+		  	}else{
+			  	document.getElementById("result").innerHTML="Sorry, your browser does not support Web Workers...";
+			}
+		}
+
+		function stopWorker(){
+			w.terminate();
+		}
+		document.getElementById('start').onclick=startWorker;
+		document.getElementById('end').onclick=stopWorker;
+	</script>
+</body>
+</html>
